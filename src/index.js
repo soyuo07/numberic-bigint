@@ -58,7 +58,7 @@ module.exports = (function () {
                 throw new Error('invaild input type: ' + type);
         }
     }
-    
+
     function toForm() {
         return Util_1.bigint(BigInt(this.value));
     }
