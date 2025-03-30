@@ -10,19 +10,39 @@ BigInt 로 처리시 너무 길게 표시되는 것을 발견.
 
 이 두가지를 보안하고자 제작하였습니다.
 
-제작에 도와주신 분들에게 감사를 표합니다.
-
-> # Structure
-> '1e+404' -> '1n' * Math.pow(10n, 404)
->
-> '1,000,000,000,...,000' -> 1e+(n.length - 1)
->
-> wrapper('1.39593e+1000') -> 139593n * Math.pow(10n, 1000 - 5)
->
-> And etc.
+> # License
+MIT License
 
 > # Example
-> We Don't Know About It
+```js
+const numberic_bigint = require('numberic-bigint');
 
-> # License
-> MIT License
+let num1 = numberic_bigint.create({
+    string: "1.583e+404"
+});
+let num2 = numberic_bigint.create({
+    bigint: 10000000000000000000000000n
+});
+let num3 = numberic_bigint.create({
+    number: 1e+308
+});
+
+console.log(num1.add({
+    string: "500"
+}));
+console.log(num2.minus({
+    number: 1e+20
+}));
+console.log(num3.mulitple({
+    bigint: 3n
+}));
+console.log(num1.divide({
+    string: "2"
+}));
+
+console.log(num2.toData('string'));
+console.log(JSON.parse(
+    JSON.stringify(num3),
+    numberic_bigint.replace
+));
+```
