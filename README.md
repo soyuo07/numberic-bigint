@@ -33,7 +33,7 @@ console.log(num1.add({
 console.log(num2.minus({
     number: 1e+20
 }));
-console.log(num3.mulitple({
+console.log(num3.multiple({
     bigint: 3n
 }));
 console.log(num1.divide({
