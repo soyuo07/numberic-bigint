@@ -3,25 +3,30 @@ class numberic_bigint {
     constructor(data) {
         Object.defineProperty(this, 'isNumbericBigInt', {
             writable: false,
+            enumerable: true,
             value: true
         });
-        this.value = String(this.wrapper(data));
+        Object.defineProperty(this, 'value', {
+                writable: true,
+                enumerable: true,
+                value: String(this.wrapper(data))
+            });
     }
     add(data) {
         this.value = String(BigInt(this.value) + this.wrapper(data));
-        return this.value;
+        return this;
     }
     minus(data) {
         this.value = String(BigInt(this.value) - this.wrapper(data));
-        return this.value;
+        return this;
     }
     multiple(data) {
         this.value = String(BigInt(this.value) * this.wrapper(data));
-        return this.value;
+        return this;
     }
     divide(data) {
         this.value = String(BigInt(this.value) / this.wrapper(data));
-        return this.value;
+        return this;
     }
     toData(type) {
         switch (type) {
