@@ -3,10 +3,12 @@ module.exports = (function () {
     function numberic_bigint(data) {
         Object.defineProperty(this, 'isNumbericBigInt', {
             writable: false,
+            enumerable: true,
             value: true
         });
         Object.defineProperty(this, 'value', {
             writable: true,
+            enumerable: true,
             value: String(
                 wrapper(data)
             )
@@ -17,28 +19,28 @@ module.exports = (function () {
         this.value = String(
             BigInt(this.value) + add_value
         );
-        return this.value;
+        return this;
     }
     numberic_bigint.prototype.minus = function (data) {
         let minus_value = wrapper(data);
         this.value = String(
             BigInt(this.value) - minus_value
         );
-        return this.value;
+        return this;
     }
     numberic_bigint.prototype.multiple = function (data) {
         let multiple_value = wrapper(data);
         this.value = String(
             BigInt(this.value) * multiple_value
         );
-        return this.value;
+        return this;
     }
     numberic_bigint.prototype.divide = function (data) {
         let divide_value = wrapper(data);
         this.value = String(
             BigInt(this.value) / divide_value
         );
-        return this.value;
+        return this;
     }
     numberic_bigint.prototype.toData = function (type) {
         switch (type) {
