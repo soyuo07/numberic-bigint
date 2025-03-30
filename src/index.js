@@ -58,10 +58,13 @@ module.exports = (function () {
                 throw new Error('invaild input type: ' + type);
         }
     }
+    
+    function toForm() {
+        return Util_1.bigint(BigInt(this.value));
+    }
+    toForm.toString = Function.prototype.toString.bind(Object.prototype.toString);
     Object.defineProperty(numberic_bigint.prototype, 'toString', {
-        value: (function () {
-            return Util_1.bigint(BigInt(this.value));
-        }).toString = Function.prototype.toString.bind(Object.prototype.toString),
+        value: toForm,
         writable: false,
         enumerable: false,
         configurable: false
@@ -95,6 +98,7 @@ module.exports = (function () {
             default:
                 throw new Error('invaild input data key: ' + data[0]);
         }
+        return value;
     }
 
     return numberic_bigint;
