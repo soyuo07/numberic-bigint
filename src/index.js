@@ -69,6 +69,14 @@ module.exports = (function () {
         enumerable: false,
         configurable: false
     });
+    Object.defineProperty(numberic_bigint.prototype, 'toJSON', {
+        value: function () {
+            return this;
+        },
+        writable: false,
+        enumerable: false,
+        configurable: false
+    });
 
     numberic_bigint.replacer = (key, value) => {
         if (value && typeof value === 'object' && value.isNumbericBigInt === true) {

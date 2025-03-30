@@ -40,6 +40,9 @@ class numberic_bigint {
     toString() {
         return Util_1.bigint(BigInt(this.value));
     }
+    toJSON() {
+        return this;
+    }
     static replacer(key, value) {
         if (value && typeof value === 'object' && value.isNumbericBigInt === true) {
             return numberic_bigint.create({
